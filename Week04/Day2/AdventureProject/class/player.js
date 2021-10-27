@@ -51,7 +51,6 @@ class Player {
         // Fill this in
         let idxItem = this.items.map(item => item.name).indexOf(itemName);
         let item = this.getItemByName(itemName);
-             //console.log(`-----------------dropitem----- ${idxItem}`)
         this.currentRoom.items.push(item);
         this.items.splice(idxItem, 1);
     }
