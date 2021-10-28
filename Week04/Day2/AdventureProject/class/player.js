@@ -40,7 +40,7 @@ class Player {
         // Fill this in
         let item = this.currentRoom.getItemByName(itemName);
         let idxItem =  this.currentRoom.items.indexOf(item); 
-        if (idxItem>=0) {
+        if (idxItem >= 0) {
             this.items.push(item);
             this.currentRoom.items.splice(idxItem, 1);
         }            
