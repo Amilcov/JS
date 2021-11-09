@@ -1,0 +1,75 @@
+Array practice
+Identify the time complexity of each of these functions with a 1 sentence justification for your answer. Assume arr is an array of length n.
+
+arr.push()
+Time complexity: O(1) Space complexity: O(n) Justification: Fill this in
+
+//Time: because JS ask for more memoery that it is used and mark those as <empty>
+//Space: because need space for n elements
+
+
+
+arr.pop()
+Time complexity: O(1) Space complexity: O(1) Justification: Fill this in
+//Time: No time used to mark an elem as <empty>
+//Space: because no need for more space
+
+
+arr.shift()
+Time complexity: O(n) Space complexity: O(1) Justification: Fill this in
+//Time: need to move/copy all elements (move to the left)
+//Space: because no need for more space
+
+arr.unshift()
+Time complexity: O(n) Space complexity: O(1) Justification: Fill this in
+//Time: need to move/copy all elements (move to the right)
+//Space: because  need  1 more space 
+
+
+
+arr.splice()
+Time complexity: O(n) Space complexity: O(n) Justification: Fill this in
+//Time: need to move/copy all elements (move to the right)
+//Space: because  need for more space the insert newly added elems
+
+
+
+arr.slice()
+Time complexity: O(n) Space complexity: O(n) Justification: Fill this in
+//Time: need to copy all elements into a new array
+//Space: because need space for the new array
+
+
+arr.indexOf()
+Time complexity: O(n) Space complexity: O(1) Justification: Fill this in
+//Time: sesarch all n elem  
+//Space: no space require
+
+
+arr.map()
+Time complexity: O(n) Space complexity: O(n) Justification: Fill this in
+//Time: need to copy all elements into a new array
+//Space: because need space for the new array
+
+
+arr.filter()
+Time complexity: O(n) Space complexity: O(n) Justification: Fill this in
+//Time: need to copy all elements into a new array
+//Space: because need space for the new array
+
+arr.reduce()
+Time complexity: O(n) Space complexity: O(1) Justification: Fill this in
+//Time: need to read all elements into a new array
+//Space: because no  need  for extra space 
+
+
+arr.reverse()
+Time complexity: O(n) Space complexity: O(1) Justification: Fill this in
+//Time: need to copy all elements into a new array
+//Space:take new space but then released 
+
+
+[...arr]
+Time complexity: O(n) Space complexity: O(n) Justification: Fill this in
+//Time: need to read all elements 
+//Space: take n space 
