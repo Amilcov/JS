@@ -1,4 +1,4 @@
-const HashTable = require('../hash-table/hash-table');
+const HashTable = require('../Part1_hash-table/hash-table');
 
 
 //solution 4:  O(n): 284ms
