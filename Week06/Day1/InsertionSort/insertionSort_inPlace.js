@@ -3,18 +3,15 @@ function insertSort_inPlace(arry) {
     for (let divider = 1; divider < arry.length; divider++) {
         
          let elem = arry[divider];
-         let idxInsert = 0;
+         let idxInsert = divider;
 
-         while (arry[idxInsert] < elem) {
-                idxInsert++;
+
+         while (arry[idxInsert - 1] > elem && idxInsert > 0) {
+                arry[idxInsert] = arry[idxInsert - 1];
+                idxInsert--;
          }
-    
-         for (let j = divider - 1; j >= idxInsert; j--) {
-              arry[j + 1] = arry[j];
-         }
-
-         arry[idxInsert] = elem;
-
+         
+            arry[idxInsert] = elem;
     }
 
     return arry;
