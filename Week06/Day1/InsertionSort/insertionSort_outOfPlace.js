@@ -1,19 +1,20 @@
 function insertSort_outOfPlace(arry) {
-    newArry = [];
+    sorted = [];
 
-    for (let i = 0; i < arry.length; i++) {
-         let elem = arry[i];
+
+      while (arry.length > 0) {
+         let elem = arry.shift();
          let idxInsert = 0;
 
-         while(newArry !==[] && newArry[idxInsert] < elem) {
+         while(sorted !==[] && sorted[idxInsert] < elem) {
            idxInsert++;
          }
 
-         newArry.splice(idxInsert,0, elem);
+         sorted.splice(idxInsert,0, elem);
 
     }
     
-    return newArry;
+    return sorted;
 }
 
 //arry = [9, 7, 3, 5, 2]
