@@ -80,11 +80,28 @@ function findMaxBT (rootNode) {
 
 function getHeight (rootNode) {
 
+
   // Fill this in
-  if (rootNode === null) return 0;
+  // if (rootNode === undefined) return 0;
 
-  return 1 + Math.max(getHeight(rootNode.left), getHeight(rootNode.right));
+  // let crt;
+  //   if (rootNode.hasOwnProperty(root)) {
+  //     crt = rootNode.root;
+  // } else {
+  //     crt = rootNode;
+  // }  
+ 
+  // if (crt.left !== null && crt.right !== null) {
+  //    return 1 + Math.max(getHeight(crt.left), getHeight(crt.right));
+  // }
 
+  // if (crt.left !== null ) {
+  //    return 1 + getHeight(crt.left);
+  // }
+
+  //  if (crt.right !== null ) {
+  //    return 1 + getHeight(crt.right);
+  // }
 
 }
 
@@ -122,12 +139,74 @@ function balancedTree (rootNode) {
 function getParentNode (rootNode, target) {
 
   // Fill this in
+  
+   let crt = rootNode;
+   if (rootNode.val === target) return null;
+   while (true) {
+  
+     if (crt.left !== null && crt.left.val === target) {
+       return crt;
+     }
+
+     if (crt.right !== null && crt.right.val === target) {
+       return crt;
+     }
+
+     if (target < crt.val) {
+         if (crt.left === null) {
+           return undefined;
+         } else {
+            crt = crt.left;
+         }; 
+     } else {
+         if (crt.right === null) {
+           return undefined;
+         } else {
+            crt = crt.right;
+         }; 
+
+     }
+   }
 
 }
 
 function inOrderPredecessor (rootNode, target) {
+   let parentNode = getParentNode (rootNode, target);
+   let targetNode;
 
-  // Fill this in
+   if (parentNode === null) {
+       if (rootNode.val === target) {
+           targetNode = rootNode;
+       } else {
+            return null;
+       }
+   } else {
+      if (parentNode.left!== null && parentNode.left.val === target){
+          targetNode = parentNode.left;
+      }  else {
+          targetNode = parentNode.right;
+      }
+   }
+
+
+   if (targetNode.left === null) {
+     if(targetNode.right === null) {
+       return null;
+     } else {
+       if (parentNode === null) {
+           return null;
+       } else {
+         return parentNode.val;
+       }
+     } 
+   } else {
+      crt = targetNode.left;
+      while (crt.right !== null) {
+             crt = crt.right;
+    }
+      return crt.val;
+   }
+             
 
 }
 
@@ -162,9 +241,13 @@ let bst = new BinarySearchTree();
     bst.insert(5);
     bst.insert(7);
 
-    // console.log(bst);
+     //console.log(bst);
     //console.log(countNodes(bst));
+    //console.log(getHeight(bst));
+    //getParentNode (bst.root, 3)
+    //console.log(inOrderPredecessor (bst.root, 3));
 
+    
        let bstRoot;
   let bstRootUnbalanced;
   let btRoot;
@@ -173,7 +256,7 @@ let bst = new BinarySearchTree();
 
   let rootNodeUnbalanced;
 
-     bstRoot = new TreeNode(4);
+    bstRoot = new TreeNode(4);
     bstRoot.left = new TreeNode(2);
     bstRoot.left.left = new TreeNode(1);
     bstRoot.left.right = new TreeNode(3);
@@ -182,7 +265,7 @@ let bst = new BinarySearchTree();
     bstRoot.right.right = new TreeNode(7);
 
 
-      bstRootUnbalanced = new TreeNode(1);
+    bstRootUnbalanced = new TreeNode(1);
     bstRootUnbalanced.right = new TreeNode(2);
     bstRootUnbalanced.right.right = new TreeNode(3);
     bstRootUnbalanced.right.right.right = new TreeNode(4);
@@ -205,7 +288,7 @@ let bst = new BinarySearchTree();
     btRootUnbalanced.right.right.right.right = new TreeNode(7);
     btRootUnbalanced.right.right.right.right.right = new TreeNode(6);
     btRootUnbalanced.right.right.right.right.right.right = new TreeNode(5);
-
+/*
 console.log(bstRoot)
      console.log(countNodes(bstRoot))//.to.equal(7);
      console.log(countNodes(bstRootUnbalanced))//.to.equal(7);
@@ -224,5 +307,17 @@ console.log(bstRoot)
 
      console.log(btRoot.root)
 
+     */
+
      
+  
+     //console.log(inOrderPredecessor(bstRoot, 4))//).to.equal(3);
+     //console.log(inOrderPredecessor(bstRootUnbalanced, 6))//).to.equal(5);
+
  
+
+  
+    //console.log( inOrderPredecessor(bstRoot, 1))//).to.equal(null);
+    console.log( inOrderPredecessor(bstRootUnbalanced, 1))//).to.equal(null);
+
+  
